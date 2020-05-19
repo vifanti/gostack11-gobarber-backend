@@ -9,9 +9,9 @@ module.exports = {
   // password: 'docker',
   // database: 'gostack_gobarber',
   // ssl: ,
-  entities: ['./src/models/*.ts'],
-  migrations: ['./src/database/migrations/*.ts'],
+  entities: ['./src/modules/**/infra/typeorm/entities/*.ts'],
+  migrations: ['./src/shared/infra/typeorm/migrations/*.ts'],
   cli: {
-    migrationsDir: './src/database/migrations',
+    migrationsDir: './src/shared/infra/typeorm/migrations/*.ts',
   },
 };
