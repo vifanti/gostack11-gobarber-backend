@@ -5,20 +5,17 @@ import CreateUserService from './CreateUserService';
 
 let fakeUsersRepository: FakeUsersRepository;
 let fakeHashProvider: FakeHashProvider;
-let createAppointment: CreateUserService;
+let createUser: CreateUserService;
 
 describe('CreateUser', () => {
   beforeEach(() => {
     fakeUsersRepository = new FakeUsersRepository();
     fakeHashProvider = new FakeHashProvider();
-    createAppointment = new CreateUserService(
-      fakeUsersRepository,
-      fakeHashProvider,
-    );
+    createUser = new CreateUserService(fakeUsersRepository, fakeHashProvider);
   });
 
   it('should be able to create a new user', async () => {
-    const user = await createAppointment.execute({
+    const user = await createUser.execute({
       name: 'Rick Sanchez',
       email: 'ricksanchez@gmail.com',
       password: '123456',
@@ -28,14 +25,14 @@ describe('CreateUser', () => {
   });
 
   it('should not be able to create a new user with same email from another', async () => {
-    await createAppointment.execute({
+    await createUser.execute({
       name: 'Rick Sanchez',
       email: 'ricksanchez@gmail.com',
       password: '123456',
     });
 
     await expect(
-      createAppointment.execute({
+      createUser.execute({
         name: 'Rick Sanchez',
         email: 'ricksanchez@gmail.com',
         password: '123456',
