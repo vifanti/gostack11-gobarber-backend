@@ -43,6 +43,6 @@ app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
 
 app.listen(3333, () => {
   // eslint-disable-next-line no-console
-  console.log('🚀 Server started on http://localhost:3333');
+  console.log(`🚀 Server started on ${process.env.APP_API_URL}`);
   app.use(express.json());
 });
