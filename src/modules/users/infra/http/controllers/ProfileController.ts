@@ -30,8 +30,6 @@ export default class Profilecontroller {
       password,
     });
 
-    delete user.password;
-
     return response.json(classToClass(user));
   }
 }
