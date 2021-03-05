@@ -69,3 +69,11 @@
 - O usuário não pode agendar em um horário já ocupado;
 - O usuário não pode agendar em um horário que já passou;
 - O usuário não pode agendar serviços consigo mesmo;
+
+# Comandos para criação dos bancos no docker
+
+docker run --name gostack11-gobarber-postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
+
+docker run --name gostack11-gobarber-mongodb -p 27017:27017 -d -t mongo
+
+docker run --name gostack11-gobarber-redis -p 6379:6379 -d -t redis:alpine
